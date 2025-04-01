@@ -1,0 +1,11 @@
+build/
+dist/
+.generated_files/
+
+nbproject/*
+!nbproject/configurations.xml
+!nbproject/project.xml
+
+queuelogs/*
+defmplabxtrace*
+*.txt
