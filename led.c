@@ -1,9 +1,16 @@
-#if defined(__XC)
-    #include <xc.h>         /* XC8 General Include File */
-#elif defined(HI_TECH_C)
-    #include <htc.h>        /* HiTech General Include File */
-#endif
-
+/**************************************************
+ * 
+ * File Name: led.c
+ * 
+ * Description: LED status indicator library file
+ * 
+ * Programmer: Charles Mulder
+ * 
+ * Date: 23/02/2025
+ * 
+ * Version: 1.0.0
+ * 
+ *************************************************/
 #define GREEN_LED PORTBbits.RB2
 #define YELLOW_LED PORTBbits.RB1
 #define RED_LED PORTBbits.RB0

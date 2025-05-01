@@ -17,7 +17,6 @@
 oscillator configurations. */
 void ConfigureOscillator(void)
 {
-    /* TODO Add clock switching code if appropriate.  */
     IRCF0 = 1; // FOSC = 16MHz
     IRCF1 = 1;
     IRCF2 = 1;
@@ -26,7 +25,4 @@ void ConfigureOscillator(void)
     //SCS0 = 1;
     SCS1 = 1;
 
-    /* Typical actions in this function are to tweak the oscillator tuning
-    register, select new clock sources, and to wait until new clock sources
-    are stable before resuming execution of the main project. */
 }

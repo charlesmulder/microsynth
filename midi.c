@@ -1,6 +1,6 @@
 /**************************************************
  * 
- * File Name: midi.h
+ * File Name: midi.c
  * 
  * Description: MIDI lib
  * 

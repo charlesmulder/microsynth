@@ -2,7 +2,7 @@
  * 
  * File Name: wavetable.h
  * 
- * Description: Wave table library header file
+ * Description: Wavetable library header file
  * 
  * Programmer: Charles Mulder
  * 

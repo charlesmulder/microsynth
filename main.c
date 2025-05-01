@@ -90,7 +90,7 @@ void main(void)
                if( msgByteCounter == 2 ) {
 
                    midiNote = channelVoiceMessage.dataBytes[0];
-                   midiVelocity = channelVoiceMessage.dataBytes[1]; /* @todo */
+                   midiVelocity = channelVoiceMessage.dataBytes[1];
 
                    if( midiIsNoteOn( channelVoiceMessage.statusByte ) ) {
                        samplingIncrement = wavetableGetSamplingIncrement( midiNote );
