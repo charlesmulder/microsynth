@@ -15,3 +15,4 @@ unsigned char wavetableGetSamplingIncrement( unsigned char noteNumber );
 unsigned char wavetableGetSquareSample( unsigned int phase );
 unsigned char wavetableGetSineSample( unsigned int phase );
 unsigned char wavetableGetSawtoothSample( unsigned int phase );
+float wavetableCalculateSamplingIncrement(unsigned int N, float f, unsigned int fs) {

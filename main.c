@@ -28,19 +28,8 @@ struct midiMessage channelVoiceMessage = {0};
 /* Wavetables */
 unsigned int N = 4096; /* wave table length */
 unsigned int fs = 29400; /* audio sampling rate */
-unsigned int phase = 0; /* index of the current wave table iteration */
+unsigned int phase = 0; /* index of the current wavetable iteration */
 unsigned int samplingIncrement = 0; /* amount to increment the phase by */
-
-/**
- * @param N wavetable length
- * @param f note frequency
- * @param fs sampling rate
- * @return  float
- * @lib wavetable
- */
-float calculateSamplingIncrement(unsigned int N, float f, unsigned int fs) {
-    return N * f / fs;
-}
 
 /**
  * see https://microcontrollerslab.com/dac-module-pic-microcontroller-mplab-xc8-programming/
@@ -64,9 +53,6 @@ void main(void)
                 ledYellowOff();
             }
 
-            /**
-             * @todo handle this
-             */
             if( overrunError == 1 ) {
                 ledRedOn();
             } else {
@@ -102,7 +88,7 @@ void main(void)
                 * of once each sampling instant.
                 */
                if( msgByteCounter == 2 ) {
-               //if( midiIsNoteOn( channelVoiceMessage.statusByte ) && msgByteCounter == 2 ) {
+
                    midiNote = channelVoiceMessage.dataBytes[0];
                    midiVelocity = channelVoiceMessage.dataBytes[1]; /* @todo */
 
@@ -134,9 +120,10 @@ void main(void)
            }
         }
 
-        /* Sounding a note is independent of receiving midi messages as
-         we are sounding to the sampling rate */
-
+        /** 
+         * Sounding a note is independent of receiving midi messages 
+         * as we are sounding to the sampling rate 
+         */
         if( isSamplingInstant == 1) {
             isSamplingInstant = 0;
 

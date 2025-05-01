@@ -22,8 +22,8 @@
 #ifndef _PIC12
 
 extern unsigned char msgByte;
-extern unsigned char framingError;
-extern unsigned char overrunError;
+extern unsigned char framingError; /* missing stop bit */
+extern unsigned char overrunError; /* receive FIFO buffer can hold only two characters */
 
 unsigned char isSamplingInstant = 0;
 unsigned char isMidiMessageReceived = 0;
@@ -46,27 +46,6 @@ void __interrupt() isr(void)
         TMR0 = 120; /* 256-136 => fs = 29400 Hz */   
     }
    
-
-#if 0
-    
-    /* TODO Add interrupt routine code here. */
-
-    /* Determine which flag generated the interrupt */
-    if(<Interrupt Flag 1>)
-    {
-        <Interrupt Flag 1=0>; /* Clear Interrupt Flag 1 */
-    }
-    else if (<Interrupt Flag 2>)
-    {
-        <Interrupt Flag 2=0>; /* Clear Interrupt Flag 2 */
-    }
-    else
-    {
-        /* Unhandled interrupts */
-    }
-
-#endif
-
 }
 #endif
 

@@ -58,12 +58,30 @@ static void initMidiIn(void) {
     
     /**
      * EUSART BAUD rate
+     * +------+-------+------+-------------+------------------+
+	 * | SYNC | BRG16 | BRGH | EUSART Mode | BAUD Formula     |
+	 * +------+-------+------+-------------+------------------+
+	 * | 0    | 0     | 0    | 8-bit/async | FOSC/64(SPBRG+1) |
+	 * +------+-------+------+-------------+------------------+
+	 * | 0    | 0     | 1    | 8-bit/async | FOSC/16(SPBRG+1) |
+	 * +------+-------+------+-------------+------------------+
      */
     SYNC = 0; /* Asynchronous mode */
     BRGH = 0;
     BRG16 = 0;
     SPBRGH = 0;
-    //SPBRGL = 25; /* for Proteus simulation using COMPIN */
+    
+    /**
+     * 
+     * COM port requires BAUD rate = 9600Hz
+     * SPBRGL = FOSC/64*BAUD-1
+     */
+     /* SPBRGL = 25; /* for Proteus simulation using COMPIN */
+    
+    /**
+     * MIDI requires BAUD rate = 31250Hz
+     * SPBRGL = FOSC/64*BAUD-1
+     */
     SPBRGL = 7; /* for MIDI hardware */
     SPEN = 1; /* Serial Port Enable */ 
     CREN = 1; /* Continuous Receive Enable bit */
@@ -94,7 +112,7 @@ static void initDac(void) {
 static void initSampling(void) {
     /**
      * Timer0
-     * Used to simulate sampling rate (fs) 44100
+     * Used to simulate sampling rate (fs) 29400
      * @note When TMR0 is written, the increment is inhibited for two instruction cycles immediately following the write
      */
     TMR0CS = 0; /* set clock source = FOSC/4 */
@@ -102,25 +120,27 @@ static void initSampling(void) {
     
     /**
      * Interrupt flag bits are set when an interrupt
-        condition occurs, regardless of the state of
-        its corresponding enable bit or the Global
-        Enable bit, GIE, of the INTCON register.
-        User software should ensure the
-        appropriate interrupt flag bits are clear
-        prior to enabling an interrupt.
+     * condition occurs, regardless of the state of
+     * its corresponding enable bit or the Global
+     * Enable bit, GIE, of the INTCON register.
+     * User software should ensure the
+     * appropriate interrupt flag bits are clear
+     * prior to enabling an interrupt.
      */
-    
     TMR0IF = 0;
     
     /**
-     * Calculations indicate a sampling rate of 44100 requires TMR0 = 167
-     * However, middle C sounds like A below middle C
-     * TMR0 = 185 sounds like middle C, but we are adjusting the sampling rate
+     * FOSC = 16MHz
+     * Fcyc = 4MHz
+     * Tcyc = 1/Fcyc = 0.25us
+     * fs = 29.4kHz
+     * period = 1/fs = 34.01361us ( one cycle )
+     * steps = period / Tcyc = 136.05
      */
     TMR0 = 120; /* 256-136 => fs = 29400 Hz */ 
     
     TMR0IE = 1; /* enable interrupt */
-    GIE = 1; /* Enable global interrupts */
+    GIE = 1; /* enable global interrupts */
 }
 
 void InitApp(void)

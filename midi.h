@@ -1,15 +1,15 @@
 /**************************************************
- * 
+ *
  * File Name: midi.h
- * 
+ *
  * Description: MIDI lib
- * 
+ *
  * Programmer: Charles Mulder
- * 
+ *
  * Date: 07/12/2025
- * 
+ *
  * Version: 1.0.0
- * 
+ *
  *************************************************/
 
 struct midiMessage {
@@ -27,7 +27,7 @@ unsigned char midiIsSystemMessage( unsigned char byte );
 /**
  * Data Bytes
  */
-unsigned char midiIsDataByte( unsigned char byte ); 
+unsigned char midiIsDataByte( unsigned char byte );
 
 /**
  * Channel Voice Messages

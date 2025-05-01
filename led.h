@@ -1,15 +1,15 @@
 /**************************************************
- * 
+ *
  * File Name: led.h
- * 
+ *
  * Description: LED lib
- * 
+ *
  * Programmer: Charles Mulder
- * 
+ *
  * Date: 01/02/2025
- * 
+ *
  * Version: 1.0.0
- * 
+ *
  *************************************************/
 
 void ledRedToggle(void);
