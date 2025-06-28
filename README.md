@@ -113,9 +113,9 @@ A microcontroller-based digital synthesizer built with the PIC16F1718 that recei
 | Red | Buffer Overrun | Requires restart |
 
 ### MIDI Channel Selection
-- **Channel 1**: 🌊 Sine wave
-- **Channel 2**: ⬜ Square wave  
-- **Channel 3+**: ⚡ Sawtooth wave
+- **Channel 1**: Sine wave
+- **Channel 2**: Square wave  
+- **Channel 3+**: Sawtooth wave
 
 ### Supported MIDI Messages
 - `Note-on` (0x90-0x9F)
@@ -147,7 +147,7 @@ This project prioritizes:
 - **Hearing Safety**: Users advised about volume exposure risks
 - **Educational Value**: Open-source design for learning
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 Potential improvements include:
 - [ ] Polyphonic capability
@@ -156,15 +156,6 @@ Potential improvements include:
 - [ ] Additional waveforms
 - [ ] Higher sampling rates
 - [ ] MIDI CC parameter control
-
-## Documentation
-
-Complete project documentation includes:
-- [Hardware design rationale](docs/hardware-design.md)
-- [Software implementation details](docs/software-architecture.md)
-- [Frequency analysis of waveforms](docs/frequency-analysis.md)
-- [Ethical considerations](docs/ethics.md)
-- [Performance measurements](docs/performance.md)
 
 ## Project Structure
 
