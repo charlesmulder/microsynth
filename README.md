@@ -6,7 +6,7 @@ A microcontroller-based digital synthesizer built with the PIC16F1718 that recei
   <img src="docs/proteus-schematic.png" alt="Micro Synth Block Diagram" width="600">
 </p>
 
-## 🎵 Features
+## Features
 
 - **MIDI 1.0 Compliance**: Receives note-on and note-off messages via standard MIDI protocol
 - **Three Waveforms**: Sine, sawtooth, and square wave synthesis  
@@ -15,7 +15,7 @@ A microcontroller-based digital synthesizer built with the PIC16F1718 that recei
 - **Visual Feedback**: LED indicators for system status and MIDI activity
 - **Educational Design**: Breadboard-friendly for learning and experimentation
 
-## 🔧 Hardware Requirements
+## Hardware Requirements
 
 ### Core Components
 - **PIC16F1718** microcontroller (28-pin DIP)
@@ -32,7 +32,7 @@ A microcontroller-based digital synthesizer built with the PIC16F1718 that recei
 - **MPLAB PICkit 5** In-Circuit Debugger
 - **MPLAB X IDE** for development
 
-## 📊 Technical Specifications
+## Technical Specifications
 
 | Parameter | Value |
 |-----------|-------|
@@ -45,7 +45,7 @@ A microcontroller-based digital synthesizer built with the PIC16F1718 that recei
 | Note Range | MIDI notes 48-72 (C3-C5) |
 | Audio Output | Mono, amplified |
 
-## 🏗️ Software Architecture
+## Software Architecture
 
 ### Key Features
 - **Interrupt-driven MIDI processing** using EUSART
@@ -58,7 +58,7 @@ A microcontroller-based digital synthesizer built with the PIC16F1718 that recei
 - **Sawtooth Wave**: Rich harmonic content with anti-aliasing filter
 - **Square Wave**: Odd harmonics only, calculated in real-time
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 - [MPLAB X IDE](https://www.microchip.com/mplab/mplab-x-ide) (latest version)
@@ -103,7 +103,7 @@ A microcontroller-based digital synthesizer built with the PIC16F1718 that recei
    - MIDI keyboard to DIN5 connector
    - Speaker to audio output
 
-## 🎹 Usage
+## Usage
 
 ### LED Status Indicators
 | LED Color | Status | Description |
@@ -122,7 +122,7 @@ A microcontroller-based digital synthesizer built with the PIC16F1718 that recei
 - `Note-off` (0x80-0x8F)
 - Running status for efficient message handling
 
-## 📋 Circuit Schematic
+## Circuit Schematic
 
 The complete circuit includes:
 - MIDI input isolation circuit
@@ -133,7 +133,7 @@ The complete circuit includes:
 
 > 📖 See the [full project documentation](docs/microsynth-report.pdf) for detailed schematics and component values.
 
-## ⚠️ Limitations
+## Limitations
 
 - **Monophonic**: Only one note can play at a time
 - **Pitch Accuracy**: Integer sampling increments cause slight pitch devi
