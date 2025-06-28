@@ -3,7 +3,7 @@
 A microcontroller-based digital synthesizer built with the PIC16F1718 that receives MIDI input and generates real-time audio output using wavetable synthesis.
 
 <p align="center">
-  <img src="docs/proteus-schematic.png" alt="Micro Synth Block Diagram" width="600">
+  <img src="docs/block-diagram.png" alt="Micro Synth Block Diagram" width="600">
 </p>
 
 ## Features
@@ -108,9 +108,9 @@ A microcontroller-based digital synthesizer built with the PIC16F1718 that recei
 ### LED Status Indicators
 | LED Color | Status | Description |
 |-----------|--------|-------------|
-| 🟢 Green | MIDI Activity | On when note is playing |
-| 🟡 Yellow | Framing Error | EUSART error (auto-reset) |
-| 🔴 Red | Buffer Overrun | Requires restart |
+| Green | MIDI Activity | On when note is playing |
+| Yellow | Framing Error | EUSART error (auto-reset) |
+| Red | Buffer Overrun | Requires restart |
 
 ### MIDI Channel Selection
 - **Channel 1**: 🌊 Sine wave
@@ -131,9 +131,86 @@ The complete circuit includes:
 - 2-pole Butterworth low-pass filter (14.7 kHz cutoff)
 - LED status indicators
 
-> 📖 See the [full project documentation](docs/microsynth-report.pdf) for detailed schematics and component values.
+> See the [full project documentation](docs/microsynth-report.pdf) for detailed schematics and component values.
 
 ## Limitations
 
 - **Monophonic**: Only one note can play at a time
-- **Pitch Accuracy**: Integer sampling increments cause slight pitch devi
+- **Pitch Accuracy**: Integer sampling increments cause slight pitch deviations
+- **Limited Range**: 25-note range to avoid pitch collisions
+- **No Polyphony**: Multiple notes will overwrite each other
+
+## Ethical Considerations
+
+This project prioritizes:
+- **Sustainability**: Breadboard assembly for component reuse
+- **Hearing Safety**: Users advised about volume exposure risks
+- **Educational Value**: Open-source design for learning
+
+## 🔮 Future Enhancements
+
+Potential improvements include:
+- [ ] Polyphonic capability
+- [ ] ADSR envelope generation
+- [ ] Real-time filter controls
+- [ ] Additional waveforms
+- [ ] Higher sampling rates
+- [ ] MIDI CC parameter control
+
+## Documentation
+
+Complete project documentation includes:
+- [Hardware design rationale](docs/hardware-design.md)
+- [Software implementation details](docs/software-architecture.md)
+- [Frequency analysis of waveforms](docs/frequency-analysis.md)
+- [Ethical considerations](docs/ethics.md)
+- [Performance measurements](docs/performance.md)
+
+## Project Structure
+
+```
+microsynth/
+├── src/                    # Source code
+│   ├── main.c             # Main application
+│   ├── midi.c             # MIDI processing
+│   ├── wavetables.c       # Waveform data
+│   └── interrupts.c       # Interrupt handlers
+├── inc/                   # Header files
+├── docs/                  # Documentation
+└── README.md            # This file
+```
+
+## License
+
+This project is open source. Please credit the original work when using or modifying.
+
+## Author
+
+**Charles Mulder**  
+Bachelor of Engineering in Electronic and Computer Engineering  
+Atlantic Technological University Sligo  
+
+- Website: [charlesmulder.net](https://charlesmulder.net)
+- LinkedIn: [linkedin.com/in/charlesmulder](https://linkedin.com/in/charlesmulder)
+- GitHub: [github.com/charlesmulder](https://github.com/charlesmulder)
+
+**Project Details:**
+- Completed: May 2025
+- Supervisor: Fabian Connolly
+
+## Acknowledgments
+
+- MIDI Manufacturers Association for MIDI specification
+- Microchip Technology for PIC16F1718 documentation
+- Academic supervisors and peers for guidance and feedback
+- Open source community for inspiration and tools
+
+---
+
+<p align="center">
+  <i>This synthesizer demonstrates the intersection of embedded systems design, digital signal processing, and music technology - combining technical precision with creative expression.</i>
+</p>
+
+<p align="center">
+  Star this repo if you found it helpful!
+</p>
