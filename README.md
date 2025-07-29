@@ -1,8 +1,6 @@
 # Micro Synth
 
-[Watch on YouTube](https://youtu.be/GOc-CwTt7qc)
-
-A microcontroller-based digital synthesizer built with the PIC16F1718 that receives MIDI input and generates real-time audio output using wavetable synthesis.
+A microcontroller-based digital synthesizer built with the PIC16F1718 that receives MIDI input and generates real-time audio output using wavetable synthesis. [Watch on YouTube.](https://youtu.be/GOc-CwTt7qc)
 
 <p align="center">
   <img src="docs/block-diagram.png" alt="Micro Synth Block Diagram" width="600">
